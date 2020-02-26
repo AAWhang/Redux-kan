@@ -5,9 +5,6 @@ import Posts from './components/posts'
 import Store from './store/store'
 import { connect, Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-
-
 //
 // import fetchProductsAction from './fetchProducts'
 // import {getProductsError, getProducts, getProductsPending} from './reducer'
@@ -57,7 +54,7 @@ class App extends Component {
   render() {
        return (
          <Provider store={Store}>
-           <div className="App-header" onClick={() => this.callingKanye()}>
+           <div className="App-header">
             <div class="textbox">
                  <Posts />
              </div>
