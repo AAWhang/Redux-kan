@@ -1,26 +1,70 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import ReactDom from 'react-dom'
+import PropTypes from 'prop-types'
+import Posts from './components/posts'
+import Store from './store/store'
+import { connect, Provider } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+//
+// import fetchProductsAction from './fetchProducts'
+// import {getProductsError, getProducts, getProductsPending} from './reducer'
+
+import LoadingSpinner from './logo.svg'
+
+import './App.css'
+
+
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    this.callingKanye()
+  }
+
+  callingKanye() {
+    // fetch("https://api.kanye.rest/")
+    //   .then(res => res.json())
+    //   .then(
+    //     (result) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         quote: result.quote
+    //       });
+    //     },
+    //     (error) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         error
+    //       });
+    //     }
+    //   )
+  }
+
+
+
+  render() {
+       return (
+         <Provider store={Store}>
+           <div className="App-header" onClick={() => this.callingKanye()}>
+            <div class="textbox">
+                 <Posts />
+             </div>
+           </div>
+         </Provider>
+       );
+     }
+ }
+
+export default App
