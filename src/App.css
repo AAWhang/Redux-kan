@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
 }
 
@@ -16,7 +17,7 @@
 .App-header {
   background-image: url('./img/kanye.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,14 +25,31 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  width: 300px;
+  height: auto;
   color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .textbox {
   background-color: #000000;
   text-align: center;
   padding: 20px;
-  margin-top: 500px;
+  margin-top: -250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .App-header {width: 600px}
+  .textbox {margin-top: 200px}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .App-header {width: 800px}
+  .textbox {margin-top: 500px}
 }
 
 .App-link {
